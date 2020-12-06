@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org">>
+<html lang="es">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  
-  <!-- CDN estilos -->
-        <link rel="stylesheet" https="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-        <link rel="stylesheet" https="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <link href="carrousel/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="icon" type="image/svg" href="images/logo-ecommerce.svg" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">    
+    <title>Ecommerce-App</title>
+    <style>
+        .desc{
+            font-size: x-large;
+        }
+        a{
+          color: white;
+        }
+      </style>
 </head>
 <body>
- <!--barra de navegaci�n-->
+    <!--barra de navegación-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +37,10 @@
                 <a th:href="@{/index}" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item">
-                <a th:href="@{/listar}" class="nav-link">Productos</a>
+                <a th:href="@{/admin/listar}" class="nav-link">Productos</a>
+                </li>
+                <li class="nav-item">
+                <a th:href="@{/admin/listarCategoria}" class="nav-link">Categorias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">Nosotros</a>
@@ -48,61 +54,397 @@
                 <a class="navbar-brand" href="" data-toggle="modal" data-target="#modalCart">
                 <i class="fas fa-cart-arrow-down"></i>
                 </a>
-                <a class="navbar-brand" href="register.html">
+                <a class="navbar-brand" th:href="@{/login}" title="Login">
                  <i class="far fa-user"></i></a>
                 <input class="form-control mr-sm-2" type="search" placeholder="Producto" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
   </nav>
-<div class="container">
-	<h1>Lista productos</h1>
-	<a th:href="@{/new}" class="btn btn-primary">Nuevo</a><!-- indico la ruta de la vista Nuevo -->
-	
-	<table class="table">
-		<thead>
-			<tr>
-		      <th scope="col">ID</th>
-		      <th scope="col">Nombre</th>
-		      <th scope="col">Marca</th>
-		      <th scope="col">Descripcion</th>
-		      <th scope="col">Precio</th>
-		      <th scope="col">Genero</th>
-		      <th scope="col">Tipo</th>
-		      <th scope="col">Categoria</th>
-		      <th scope="col" style="text-align:right"><a th:href="@{/new}" class="btn btn-success circle px-3"><i class="fas fa-plus"></i></a></th>        
-	    	</tr>
-		</thead>
-		<tbody>
-			<tr th:each="producto:${productos}">
-				<td th:text="${producto.id}"></td>
-				<td th:text="${producto.nombre}"></td>
-				<td th:text="${producto.marca}"></td>
-				<td th:text="${producto.descripcion}"></td>
-				<td th:text="${producto.precio}"></td>
-				<td th:text="${producto.genero}"></td>
-				<td th:text="${producto.tipo_id}"></td>
-				<td th:text="${producto.categoria_id}"></td>	
-                <td class="d-flex justify-content-end align-items-center">
-                         <a href="" class="circle waves-effect mr-2" title="Mostrar"><i class="fas fa-eye text-info"></i></a>
-                        <a th:href="@{/editar/}+${producto.id}" class="circle waves-effect mr-2" title="Editar"><i class="fas fa-edit text-warning"></i></a>
-                        <a th:onClick="eliminar([[${producto.id}]])" class="circle waves-effect mr-2" title="Eliminar"><i class="fas fa-trash-alt text-danger"></i></a>
-                </td>
-			</tr>	
-		</tbody>
-	</table>
-	</div>
-	
-	<!-- CDN JQUERY -->
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	<!-- CDN SWEETALERT (para los msj de alerta) -->
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	
-<!-- CDN JQUERY -->
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<!-- CDN SWEETALERT (para los msj de alerta) -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+  <!--presentacion-->
+  <main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/home-background.jpg"  width="100%" height="100%" alt="">
+          <div class="container">
+            <div class="carousel-caption text-left">
+              <h1 class="display-3">Prendas de Invierno</h1>
+              <p class="desc">Ropa Juvenil De Moda, Moda, Abrigos, Moda Casual De Invierno, Ropa De Invierno.</p>
+              <p><a class="btn btn-lg btn-danger" href="#" role="button">Detalles</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+            <img src="images/home-background.jpg"  width="100%" height="100%" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="display-3">Prendas de Otoño</h1>
+              <p class="desc">Ropa Juvenil De Moda, Moda, Abrigos, Moda Casual De Otoño, Ropa De Otoño </p>
+              <p><a class="btn btn-lg btn-danger" href="#" role="button">Detalles</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+            <img src="images/home-background.jpg"  width="100%" height="100%" alt="">
+          <div class="container">
+            <div class="carousel-caption text-right">
+              <h1 class="display-3">Prendas de Primavera</h1>
+              <p class="desc">Ropa Juvenil De Moda, Moda, Abrigos, Moda Casual De Primavera, Ropa De Primavera</p>
+              <p><a class="btn btn-lg btn-danger" href="#" role="button">Detalles</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Posterior</span>
+      </a>
+    </div>
+  </main>
+  <!--secciones de productos-->
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h1>Popular Shoes</h1>
+      <hr>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="https://www.zapatillasysneakers.com/sites/default/files/static/images/air_jordan_1_85_.png"  width="100%" height="225" alt="Jordan 1 Mid Chicago Toe">
+            <div class="card-body">
+                <!--atributos del producto-->
+                <p class="card-text"><strong>Jordan 1 Mid Chicago Toe</strong></p>
+                <p class="card-text"><strong>Precio:</strong>$138</p>
+                <p class="card-text"><strong>Talla:</strong>
+                <select id="talla" class="custom-select">
+                    <option selected>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                </select> </p>
+                <div class="btn-group text-center">
+                  <button type="button" class="btn btn-sm btn-dark"><a href="detalle_shoe.html">Detalles</a></button>
+                  <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalCart">Agregar al carrito</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="data:image/jpeg;base64,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"  width="100%" height="225" alt="Jordan 1 Mid Green Toe">
+            <div class="card-body">
+                <p class="card-text"><strong>Jordan 1 Mid Green Toe</strong></p>
+                <p class="card-text"><strong>Precio:</strong>$178</p>
+                <p class="card-text"><strong>Talla:</strong>
+                <select id="talla" class="custom-select">
+                    <option selected>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                </select> </p>
+                <div class="btn-group text-center">
+                  <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                  <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/71IcCjzLIcL._AC_UX395_.jpg"  width="100%" height="225" alt="Jordan 1 Mid Black Olive Canvas">
+              <div class="card-body">
+                  <p class="card-text"><strong>Jordan 1 Mid Black Olive Canvas</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$135</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>40</option>
+                      <option>41</option>
+                      <option>42</option>
+                      <option>43</option>
+                      <option>44</option>
+                  </select> </p>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-	<script src="funcion.js"></script>
+      <!-- hoodies -->
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <h1>Popular Hoodies</h1>
+          <hr>
+          <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://cdn.shopify.com/s/files/1/1722/0531/products/TruthHoodie-BlackBack_grande.jpg?v=1571439084"  width="100%" height="300" alt="Anti Social Social Club Mind Games Hoodie (SS20) Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>Anti Social Social Club Mind Games Hoodie (SS20) Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$131</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://cdn-img.prettylittlething.com/4/a/5/d/4a5dc261b235579757c2b53d91e419d82ab90e15_CLW5604_3.JPG"  width="100%" height="300" alt="Anti Social Social Club Mind Games Hoodie (SS20) Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>Anti Social Social Club Mind Games Hoodie (SS20) Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$131</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://www.chillhoodies.com/wp-content/uploads/2019/04/Monokuma-Danganronpa-Hoodie-Sweatshirt.jpg"  width="100%" height="300" alt="Anti Social Social Club Mind Games Hoodie (SS20) Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>Anti Social Social Club Mind Games Hoodie (SS20) Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$131</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- pants -->
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <h1>Popular Pants</h1>
+          <hr>
+          <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/61PYmPKJKzL._SY355_.jpg"  width="100%" height="300" alt="FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$208</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select> </p>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://lh3.googleusercontent.com/proxy/Sgrr18FmTNxU2hE0SgmRtjZBf1Zpb-dvcJwOlBy31X096qmHTFbZ0-4MvnSXBTPebs_SqXPogPV6-RVcQT_IUn5l3_Cgt6PsmXNZ_Y814gifaQ4CuVhlE8MVj89DZKbuSc2AvPgVE4TkYRWD9I1kn9KqpitrTnbJEjRC-OHzrpCvRPYl4rb09Hwyii4VCoSbC2shIN0EV0Z0AdVfGjGhvSZTYlucru5ogw"  width="100%" height="300" alt="FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$208</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select> </p>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="https://scene7.zumiez.com/is/image/zumiez/image/Champion-pantalones-deportivos-blancos-de-tejido-inverso-_306510.jpg"  width="100%" height="300" alt="FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black">
+              <div class="card-body">
+                  <!--atributos del producto-->
+                  <p class="card-text"><strong>FEAR OF GOD ESSENTIALS Sweatpants (SS20) Dark Slate/Stretch Limo/Black</strong></p>
+                  <p class="card-text"><strong>Precio:</strong>$208</p>
+                  <p class="card-text"><strong>Talla:</strong>
+                  <select id="talla" class="custom-select">
+                      <option selected>M</option>
+                      <option>L</option>
+                      <option>M</option>
+                      <option>S</option>
+                      <option>XS</option>
+                  </select> </p>
+                  <div class="btn-group text-center">
+                    <button type="button" class="btn btn-sm btn-dark">Detalles</button>
+                    <button type="button" class="btn btn-sm btn-danger">Agregar al carrito</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: modalCart -->
+    <div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Carrito de compras</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre del Producto</th>
+                  <th>Precio</th>
+                  <th>Remover</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Air Jordan 1 Green</td>
+                  <td>130$</td>
+                  <td><a><i class="fas fa-times"></i></a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Hoodie ESSENTIALS</td>
+                  <td>100$</td>
+                  <td><a><i class="fas fa-times"></i></a></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Air Jordan 1 Mid Toe</td>
+                  <td>170$</td>
+                  <td><a><i class="fas fa-times"></i></a></td>
+                </tr>
+                <tr class="total">
+                  <th scope="row"></th>
+                  <td><strong>Total</strong></td>
+                  <td><strong>$400</strong></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+            <button class="btn btn-danger">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: modalCart -->
+<!-- Footer -->
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
+<!-- Footer -->
+<footer class="page-footer font-small bg-dark lighten-1">
+  <!-- Footer Elements -->
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#">Ecommerce-App</a>
+      </div>
+</footer>
+
 </html>

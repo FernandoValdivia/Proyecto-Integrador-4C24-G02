@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.interfaceServices.IproductoService;
 import com.example.demo.modelo.Producto;
 
-@Controller
+@Controller  
 @RequestMapping
 public class ControlerProducto {
 
@@ -24,18 +24,18 @@ public class ControlerProducto {
 	
 	@GetMapping("/index")
 	public String menu(Model model) {
-		return "indexP";//en la vista index envio la lista de productos
+		return "index";//vista index (Pagina principal)
 	}
 	
-	@GetMapping("/listar")
+	@GetMapping("/admin/listar")
 	public String listar(Model model) {
 		List<Producto>productos = service.listar();
 		model.addAttribute("productos",productos);
-		return "index";//en la vista index envio la lista de productos
+		return "listaProductos";//en la vista index envio la lista de productos
 	}
 
 	//muestro formulario de registro
-	@GetMapping("/new")
+	@GetMapping("/admin/new")
 	public String agregar(Model model) {
 		model.addAttribute("producto", new Producto());
 		return "registroProducto";
@@ -45,21 +45,21 @@ public class ControlerProducto {
 	@PostMapping("save")
 	public String save(@Validated Producto p, Model model) {
 		service.save(p);
-		return "redirect:/listar";
+		return "redirect:/admin/listar";
 	}
 
 	//metodo para ACTUALIZO DATOS
-	@GetMapping("/editar/{id}")
+	@GetMapping("/admin/editar/{id}")
 	public String editar(@PathVariable int id, Model modelo) { //@pathVariable es para el parametro que le paso (ID)
 		Optional<Producto> producto = service.listaId(id);//trae los datos de persona (id).
 		modelo.addAttribute("producto",producto);
 		return "registroProducto";//envio al mismo formulario de Registro pero con los datos de la persona ID
 	}
 	
-	@GetMapping("/eliminar/{id}")
+	@GetMapping("/admin/eliminar/{id}")
 	public String delete(Model modelo, @PathVariable int id) {
 		service.delete(id);
-		return "redirect:/listar";	
+		return "redirect:/admin/listar";	
 	}
 	
 }
