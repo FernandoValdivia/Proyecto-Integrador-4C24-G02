@@ -1,67 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
-    <link href="carrousel/bootstrap.min.css" rel="stylesheet" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="icon" type="image/svg" href="images/logo-ecommerce.svg" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">    
-    <title>Ecommerce-App</title>
-    <style>
-        .desc{
-            font-size: x-large;
-        }
-        a{
-          color: white;
-        }
-      </style>
-</head>
+<head th:replace="layout/head.html::head"></head>
 <body>
-    <!--barra de navegaciÃ³n-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="index.html">
-        <i class="fas fa-dolly-flatbed"></i>
-        Ecommerce-App
-        </a>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto ml-auto mt-2 mt-lg-0 text-center">
-                <li class="nav-item active">
-                <a th:href="@{/index}" class="nav-link">Inicio</a>
-                </li>
-                <li class="nav-item">
-                <a th:href="@{/admin/listar}" class="nav-link">Productos</a>
-                </li>
-                <li class="nav-item">
-                <a th:href="@{/admin/listarCategoria}" class="nav-link">Categorias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="register.html">Usuario</a>
-                </li>
-            </ul>
-            
-            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
-                <a class="navbar-brand" href="" data-toggle="modal" data-target="#modalCart">
-                <i class="fas fa-cart-arrow-down"></i>
-                </a>
-                <a class="navbar-brand" th:href="@{/login}" title="Login">
-                 <i class="far fa-user"></i></a>
-                <input class="form-control mr-sm-2" type="search" placeholder="Producto" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
-        </div>
-  </nav>
-    
+    <!--barra de navegación-->
+   <nav th:replace="layout/nav.html::nav"></nav> 
+  
   <!--presentacion-->
   <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -85,8 +28,8 @@
             <img src="images/home-background.jpg"  width="100%" height="100%" alt="">
           <div class="container">
             <div class="carousel-caption">
-              <h1 class="display-3">Prendas de OtoÃ±o</h1>
-              <p class="desc">Ropa Juvenil De Moda, Moda, Abrigos, Moda Casual De OtoÃ±o, Ropa De OtoÃ±o </p>
+              <h1 class="display-3">Prendas de Otoño</h1>
+              <p class="desc">Ropa Juvenil De Moda, Moda, Abrigos, Moda Casual De Otoño, Ropa De Otoño </p>
               <p><a class="btn btn-lg btn-danger" href="#" role="button">Detalles</a></p>
             </div>
           </div>
@@ -346,7 +289,7 @@
           <div class="modal-header">
             <h4 class="modal-title" id="myModalLabel">Carrito de compras</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">Ã—</span>
+              <span aria-hidden="true">×</span>
             </button>
           </div>
           <!--Body-->
@@ -442,7 +385,7 @@
           </a>
         </div>
       </div>
-      <div class="footer-copyright text-center py-3">Â© 2020 Copyright:
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="#">Ecommerce-App</a>
       </div>
 </footer>
