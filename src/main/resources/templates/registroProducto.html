@@ -3,21 +3,21 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Registro Productos</title>
-	
+	<link rel="icon" type="image/svg" href="../images/logo-ecommerce.svg" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-  <!-- CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  
-	 <!-- CDN estilos -->
-        <link rel="stylesheet" https="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-        <link rel="stylesheet" https="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	  <!-- CDN -->
+	  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+	  
+	  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	
+	<!-- CDN estilos -->
+	   <link rel="stylesheet" https="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	   <link rel="stylesheet" https="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-        <i class="fas fa-dolly-flatbed"></i>
+        <img src="../images/logo-ecommerce.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo Ecommerce-App">
         Ecommerce-App
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -48,7 +48,7 @@
             
             <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
                 <a class="navbar-brand" href="" data-toggle="modal" data-target="#modalCart">
-                <i class="fas fa-cart-arrow-down"></i>
+                	<img src="../images/shopping-cart.svg" width="27"  alt="shopping-cart">
                 </a>
                 <a class="navbar-brand" href="register.html">
                  <i class="far fa-user"></i></a>
@@ -61,10 +61,6 @@
 <div class="container mt-5 py-5">
 	<h1>Registro producto</h1>
 	<form th:action="@{/admin/save}" th:object=${producto} method="POST">
-		<div class="md-form">
-		   <label>ID Producto</label>
-		   <input  th:field="*{id}" type="text" class="form-control" name="idempleado" value="">   
-		</div>
 		
 		<div class="md-form">
 		   <label>Nombre</label>
@@ -110,7 +106,41 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
-	
+<footer class="page-footer font-small bg-dark lighten-1">
+  <!-- Footer Elements -->
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-5 flex-center">
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#">Ecommerce-App</a>
+      </div>
+</footer>
 </body>
 </html>
 

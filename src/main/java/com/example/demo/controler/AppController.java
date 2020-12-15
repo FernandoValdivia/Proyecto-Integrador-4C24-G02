@@ -26,5 +26,8 @@ public class AppController {
 	public String admin() {
 		return "admin";
 	}
-	
+	@GetMapping("/about")
+	public String about() {
+		return "about";
+	}
 }

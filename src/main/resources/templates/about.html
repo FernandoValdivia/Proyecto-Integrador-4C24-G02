@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"
-	xmlns="http://www.w3.org/1999/xhtml"
- 	xmlns:th="http://www.thymeleaf.org" 
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,10 +15,16 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">    
-    <title>Usuario</title>
+    <title>Nosotros</title>
     <style>
         .desc{
             font-size: x-large;
+        }
+        .abs-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
         }
         </style>
 </head>
@@ -43,115 +46,46 @@
                 <li class="nav-item">
                 <a class="nav-link" href="#">Productos</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="about.html">Nosotros</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="register.html">Usuario</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center" th:action="@{/logout}" method="post">
+            
+            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
                 <a class="navbar-brand" href="" data-toggle="modal" data-target="#modalCart">
                   <img src="images/shopping-cart.svg" width="27"  alt="shopping-cart">
                 </a>
-                <a class="navbar-brand" href="@{/logout}">
+                <a class="navbar-brand" href="register.html">
                   <i class="far fa-user"></i>
                 </a>
-            	<input type="submit" value="Cerrar Sesion" class="btn btn-outline-danger my-2 my-sm-0"/>
+                <input class="form-control mr-sm-2" type="search" placeholder="Producto" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
         </div>
   </nav>
-<!-- Informacion de usuario -->
-<div class="album py-5 bg-light">
+  <div class="album py-5 bg-light">
     <div class="container">
-        <h1>Información de usuario</h1>
+        <h1>Nosotros</h1>
         <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <img class="bd-placeholder-img rounded-circle" width="140" height="140" 
-                src="images/account-photo.svg">
-                <rect width="100%" height="100%" fill="#777"></rect></img>
-                <br><br>
-                <h3>[[${#httpServletRequest.remoteUser}]]</h3>
-                <p>[[${#httpServletRequest.remoteUser}]]</p>
-                <p><a class="btn btn-danger" href="#" role="button">Editar</a></p>
-            </div>
-            <div class="col-lg-8">
-                <h4><b>Nombres</b></h4>
-                <h5>[[${#httpServletRequest.remoteUser}]]</h5>
-                <h4><b>Apellidos</b></h4>
-                <h5>[[${#httpServletRequest.remoteUser}]]</h5>
-                <h4><b>Direccion</b></h4>
-                <h5>[[${#httpServletRequest.remoteUser}]]</h5>
-                <h4><b>Correo</b></h4>
-                <h5>[[${#httpServletRequest.remoteUser}]]</h5>
-                <hr>
-                <h4><b>Compras</b></h4>
-                <h5><a href="historial_compras.html">Compras realizadas</a></h5>
-                <h5><a href="" data-toggle="modal" data-target="#modalCart">Carrito de compras</a></h5>
-            </div>
-        </div>
-    </div> 
-</div>
-<div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <!--Header-->
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Carrito de compras</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <!--Body-->
-      <div class="modal-body">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nombre del Producto</th>
-              <th>Precio</th>
-              <th>Remover</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Air Jordan 1 Green</td>
-              <td>130$</td>
-              <td><a><i class="fas fa-times"></i></a></td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Hoodie ESSENTIALS</td>
-              <td>100$</td>
-              <td><a><i class="fas fa-times"></i></a></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Air Jordan 1 Mid Toe</td>
-              <td>170$</td>
-              <td><a><i class="fas fa-times"></i></a></td>
-            </tr>
-            <tr class="total">
-              <th scope="row"></th>
-              <td><strong>Total</strong></td>
-              <td><strong>$400</strong></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <p><em>Metodología Ágil</em> para el desarrollo de un proyecto integrador <br>
+            <b>Grupo 02:</b> <br>
+            <b>Visión:</b> <br>
+            Desarrollar una aplicación web interactiva, de fácil uso y un costo de mantenimiento mucho menor al tradicional. 
+            Dicha aplicación contará con sistema de búsqueda de productos por las diferentes categorías, según sean los requerimientos 
+            del cliente y con servicio delivery para la entrega del producto adquirido.</p>
+            <img src="images/home-background.jpg" alt="tienda de ropa" width="100%"><hr>
+            <a>Encuentra Todas las Novedades de la Línea de Ropa en Ecommerce-App. ¡Pago Seguro! Paga con tarjeta o en efectivo. 
+                Cambio de producto en tienda. Pago seguro. Cambios y devoluciones. Seguimiento de tu pedido. Envíos a todo el país. Varios métodos de pago.</a>
     </div>
   </div>
-</div>
-
-
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 </body>
 <footer class="page-footer font-small bg-dark lighten-1">
     <!-- Footer Elements -->

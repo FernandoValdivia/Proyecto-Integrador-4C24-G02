@@ -35,7 +35,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="index.html">
-        <i class="fas fa-dolly-flatbed"></i>
+        <img src="images/logo-ecommerce.svg" width="30" height="30" class="d-inline-block align-top" alt="Logo Ecommerce-App">
         Ecommerce-App
         </a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -59,7 +59,7 @@
             
             <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
                 <a class="navbar-brand" href="" data-toggle="modal" data-target="#modalCart">
-                <i class="fas fa-cart-arrow-down"></i>
+                	<img src="images/shopping-cart.svg" width="27"  alt="shopping-cart">
                 </a>
                 <a class="navbar-brand" th:href="@{/login}" title="Login">
                  <i class="far fa-user"></i></a>
@@ -88,12 +88,12 @@
                     <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
                     <label class="custom-control-label" for="defaultRegisterFormNewsletter">Recordarme la contraseña</label>
                 </div>
-                
+                <br>
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
-		            Usuario y contraseña invalidos.
+		            Usuario y/o contraseña inválidos.
 		        </div>
 		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		            Usted ah sido desconectado
+		            Usted se ha desconectado
 		        </div>
 		        
                 <br>
