@@ -27,6 +27,12 @@ private String password;
 @Column
 private boolean enabled;
 
+private String apellido;
+private String dni;
+private String email;
+private String token;
+private String telefono;
+
 @ManyToMany(fetch = FetchType.EAGER)
 @JoinTable(name="authorities_users",
 joinColumns=@JoinColumn(name="usuario_id"),
@@ -36,6 +42,46 @@ private Set<Authority> authority;
 //Getters y Setters
 public Long getId() {
 	return id;
+}
+
+public String getApellido() {
+	return apellido;
+}
+
+public void setApellido(String apellido) {
+	this.apellido = apellido;
+}
+
+public String getDni() {
+	return dni;
+}
+
+public void setDni(String dni) {
+	this.dni = dni;
+}
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getToken() {
+	return token;
+}
+
+public void setToken(String token) {
+	this.token = token;
+}
+
+public String getTelefono() {
+	return telefono;
+}
+
+public void setTelefono(String telefono) {
+	this.telefono = telefono;
 }
 
 public void setId(Long id) {
@@ -104,5 +150,15 @@ public boolean equals(Object obj) {
 public String toString() {
     return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 }
-	
+
+/*
+@Override
+public String toString() {
+	return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+			+ ", apellido=" + apellido + ", dni=" + dni + ", email=" + email + ", token=" + token + ", telefono="
+			+ telefono + ", authority=" + authority + "]";
+}
+	*/
+
+
 }
