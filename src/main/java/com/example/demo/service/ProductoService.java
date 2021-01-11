@@ -21,7 +21,7 @@ public class ProductoService implements IproductoService{//LLamada de los metodo
 	public List<Producto> listar() {
 		return (List<Producto>)data.findAll();//metodo "findAll() me lista todos los datos. Este metodo es propio de la "libreria" CrudRepository "
 	}
-
+	
 	@Override
 	public Optional<Producto> listaId(int id) {
 		return data.findById(id);

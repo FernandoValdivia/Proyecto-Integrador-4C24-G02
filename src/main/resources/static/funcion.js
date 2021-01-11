@@ -1,6 +1,6 @@
 function eliminar(id){
 	swal({
-	  title: "Estas seguro de liminar?",
+	  title: "Estas seguro de eliminar?",
 	  text: "Una vez eliminado, no podrá recuperar este producto!",
 	  icon: "warning",
 	  buttons: true,
@@ -9,7 +9,7 @@ function eliminar(id){
 	.then((OK) => {
 	  if (OK) {
 	  $.ajax({
-	  		url:"/eliminar/"+id,
+	  		url:"/admin/eliminar/"+id,
 	  		success: function(res) {
 	  			console.log(res);
 	  		},
@@ -18,7 +18,7 @@ function eliminar(id){
 	      icon: "success",
 	    }).then((ok)=>{
 	    	if(ok){
-	    		location.href="/listar";
+	    		location.href="/admin/listar";
 	    		}
 	    	});
 	  } else {

@@ -21,12 +21,12 @@ private Long id;
 @Column
 private String username;
 
-@Column
 private String password;
 
 @Column
 private boolean enabled;
 
+private String nombre;
 private String apellido;
 private String dni;
 private String email;
@@ -44,8 +44,24 @@ public Long getId() {
 	return id;
 }
 
+public boolean isEnabled() {
+	return enabled;
+}
+
+public void setEnabled(boolean enabled) {
+	this.enabled = enabled;
+}
+
 public String getApellido() {
 	return apellido;
+}
+
+public String getNombre() {
+	return nombre;
+}
+
+public void setNombre(String nombre) {
+	this.nombre = nombre;
 }
 
 public void setApellido(String apellido) {
@@ -113,14 +129,6 @@ public int hashCode() {
     return result;
 }
 
-public boolean isEnabled() {
-	return enabled;
-}
-
-public void setEnabled(boolean enabled) {
-	this.enabled = enabled;
-}
-
 public Set<Authority> getAuthority() {
 	return authority;
 }
@@ -145,20 +153,21 @@ public boolean equals(Object obj) {
             return false;
         return true;
 }
-
+/*
 @Override
 public String toString() {
     return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 }
 
-/*
+*/
+
 @Override
 public String toString() {
-	return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-			+ ", apellido=" + apellido + ", dni=" + dni + ", email=" + email + ", token=" + token + ", telefono="
-			+ telefono + ", authority=" + authority + "]";
+	return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled + ", nombre="
+			+ nombre + ", apellido=" + apellido + ", dni=" + dni + ", email=" + email + ", token=" + token
+			+ ", telefono=" + telefono + ", authority=" + authority + "]";
 }
-	*/
+
 
 
 }

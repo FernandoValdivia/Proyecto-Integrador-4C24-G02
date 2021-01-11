@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmls:th="http://www.thymeleaf.org">
+	<head th:replace="layout/head.html::head">
+	</head>
+<body>
+   <nav th:replace="layout/nav.html::nav"></nav> 
+<div class="album py-5 bg-light">
+	<div class="container">
+			<h1>Usuarios</h1>
+			<table class="table" border="1">
+				<thead>
+					<tr>
+				      <th scope="col">ID</th>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">Apellido</th>
+				      <th scope="col">DNI</th>
+				      <th scope="col">Email</th>
+				      <th scope="col">Telefono</th>
+				      <th scope="col" style="text-align:right"><a th:href="@{/admin/nuevoUser}" class="btn btn-success circle px-3"><i class="fas fa-plus"></i></a></th>        
+		    	</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario:${usuarios}">
+					<td th:text="${usuario.id}"></td>
+					<td th:text="${usuario.username}"></td>	
+					<td th:text="${usuario.apellido}"></td>
+					<td th:text="${usuario.dni}"></td>	
+					<td th:text="${usuario.email}"></td>
+					<td th:text="${usuario.telefono}"></td>	
+	                <td class="d-flex justify-content-end align-items-center">
+	                        <a th:href="@{/admin/editarUsuario/}+${usuario.id}" class="circle waves-effect mr-2" title="Editar"><i class="fas fa-edit text-warning"></i></a>
+	                      <a class="circle waves-effect mr-2" 
+						th:href="@{/admin/eliminarUsuario/} +${usuario.id}"
+						onclick="return confirm('Estas seguro de eliminar')" title="Eliminar"><i class="fas fa-trash-alt text-danger"></i></a>
+	                </td>
+	              
+				</tr>	
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+	<!-- CDN JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<!-- CDN SWEETALERT (para los msj de alerta) -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+<!-- CDN JQUERY -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<!-- CDN SWEETALERT (para los msj de alerta) -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- <script src="funcion.js"></script>	-->
+</body>
+<footer th:replace="layout/footer.html::footer"></footer>
+</html>

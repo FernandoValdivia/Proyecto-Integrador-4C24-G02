@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .formLogin() //configuro el formulario de LOGIN
                 .loginPage("/login")
                 .permitAll() //permito acceso a todos 
-                .defaultSuccessUrl("/menu")
+                .defaultSuccessUrl("/user")
                 .failureUrl("/login?error=true") // si el login no es correcto envio msj en la vista(en la vista muestro msj a traves de failureURL..)
                 .usernameParameter("username") // nombre del campo del formulario en vista
                 .passwordParameter("password") // "  "  " ..

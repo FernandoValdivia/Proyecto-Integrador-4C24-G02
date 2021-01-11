@@ -11,7 +11,8 @@ public interface IproductoService {
 	//DECLARO TODOS LOS METODOS DE PRODUCTO
 	
 	public List<Producto>listar();//Metodo LISTAR PERSONA
-	public Optional<Producto>listaId(int id);//metodo de tipo OPTIONAL (lista persona x ID)
+	public Optional<Producto>listaId(int id);//metodo de tipo OPTIONAL (lista x ID)
 	public int save(Producto p);
 	public void delete(int id);
+	
 }

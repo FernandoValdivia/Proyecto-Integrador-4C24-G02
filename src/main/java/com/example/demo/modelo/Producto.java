@@ -20,13 +20,16 @@ public class Producto {
 	private int tipo_id;
 	private int categoria_id;
 	
+	//
+	private String imagen;//
+	
 	public Producto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Producto(int id, String nombre, String marca, String descripcion, double precio, String genero, int tipo_id,
-			int categoria_id) {
+			int categoria_id, String imagen) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -36,7 +39,17 @@ public class Producto {
 		this.genero = genero;
 		this.tipo_id = tipo_id;
 		this.categoria_id = categoria_id;
+		this.imagen = imagen;
 	}
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -85,6 +98,5 @@ public class Producto {
 	public void setCategoria_id(int categoria_id) {
 		this.categoria_id = categoria_id;
 	}
-	
 		
 }

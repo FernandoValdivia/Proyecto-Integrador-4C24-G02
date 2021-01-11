@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="layout/head.html::head"></head>
+<body>
+   <nav th:replace="layout/nav.html::nav"></nav> 
+<div class="container mt-5 py-5">
+	<h3 class="text-center text-uppercase" th:text="${titulo}"></h3>
+	<form th:action="@{/admin/saveUsuario}" th:object=${usuario} method="POST">
+		<div class="md-form">
+		   <label>ID Usuario</label>
+		   <input  th:field="*{id}" type="text" class="form-control" name="id" value="">   
+		</div>
+		<div class="md-form">
+		   <label>Nombre</label>
+		   <input th:field="*{nombre}" type="text" class="form-control" name="nombre" value="">
+		</div>
+		<div class="md-form">
+		   <label>Nombre de Usuario</label>
+		   <input th:field="*{username}" type="text" class="form-control" name="username" value="">
+		</div>
+		<div class="md-form">
+		   <label>Apellido</label>
+		   <input th:field="*{apellido}" type="text" class="form-control" name="apellido" value="">
+		</div>
+		<div class="md-form">
+		   <label>DNI</label>
+		   <input th:field="*{dni}" type="text" class="form-control" name="dnie" value="">
+		</div>
+		<div class="md-form">
+		   <label>Email</label>
+		   <input th:field="*{email}" type="text" class="form-control" name="email" value="">
+		</div>
+		<div class="md-form">
+		   <label>Telefono</label>
+		   <input th:field="*{telefono}" type="text" class="form-control" name="telefono" value="">
+		</div>
+      
+        <button type="submit" class="btn btn-danger waves-effect rounded-pill">Agregar</button>
+        <a  class="btn btn-outline-danger waves-effect rounded-pill" th:href="@{/admin/listaUsuario}">Cancelar</a>
+       
+	</form>
+</div>
+
+<!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
+	
+</body>
+<footer th:replace="layout/footer.html::footer"></footer>
+</html>
+
+
+
